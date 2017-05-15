@@ -1,0 +1,28 @@
+{
+    "name": "diatem-net/jin-ui",
+    "description": "Utility classes to create UI components.",
+    "type": "library",
+    "license": "GPLv3",
+    "authors": [
+        {
+            "name": "Loïc Gérard",
+            "email": "lgerard@diatem.net"
+        },
+        {
+            "name": "Samuel Marchal",
+            "email": "smarchal@diatem.net"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.0",
+        "diatem-net/jin-db": "~2.0",
+        "diatem-net/jin-assets": "~2.0",
+        "diatem-net/jin-language": "~2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jin2\\": "src/"
+        }
+    }
+}
