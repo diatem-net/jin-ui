@@ -20,42 +20,42 @@ class Table extends AbstractUIComponent
   /**
    * @var Jin2\Db\Query\QueryResult   Datasource du composant
    */
-  private $datasource;
+  protected $datasource;
 
   /**
    * @var array   Tableau des noms de colonnes
    */
-  private $headers;
+  protected $headers;
 
   /**
    * @var string  Prefixe utilisé pour les IDS des cellules header
    */
-  private $header_td_idPrefix = '_header_';
+  protected $header_td_idPrefix = '_header_';
 
   /**
    * @var string  Préfixe utilisé pour les IDS des cellules standard
    */
-  private $line_td_idPrefix = '_line_';
+  protected $line_td_idPrefix = '_line_';
 
   /**
    * @var int Index de début de parsing
    */
-  private $startIndex = 0;
+  protected $startIndex = 0;
 
   /**
    * @var int Index de fin de parsing
    */
-  private $endIndex = -1;
+  protected $endIndex = -1;
 
   /**
    * @var TableModel   Instance de TableModel définissant les règles d'affichage des cellules.
    */
-  private $tableModel;
+  protected $tableModel;
 
   /**
    * @var array  Classes CSS pour les éléments du composant
    */
-  private $elementClasses = array(
+  protected $elementClasses = array(
     'th'           => array(),
     'tr'           => array(),
     'td'           => array(),
@@ -69,14 +69,14 @@ class Table extends AbstractUIComponent
   /**
    * @var array  Attributs HTML pour les éléments du composant
    */
-  private $elementAttributes = array(
+  protected $elementAttributes = array(
     'lines'        => array()
   );
 
   /**
    * @var array  Templates pour les éléments du composant
    */
-  private $elementTemplates = array(
+  protected $elementTemplates = array(
     'tbody' => null,
     'thead' => null,
     'tr'    => null,
@@ -224,7 +224,7 @@ class Table extends AbstractUIComponent
    * @return string
    * @throws \Exception
    */
-  private function renderHeaders($html)
+  protected function renderHeaders($html)
   {
     // On génère le contenu du THEAD
     $thead_content = $this->getElementTemplate('thead');
@@ -296,7 +296,7 @@ class Table extends AbstractUIComponent
    * @param  string $html  Html généré
    * @return string
    */
-  private function renderLines($html)
+  protected function renderLines($html)
   {
     $tbody_content = $this->getElementTemplate('tbody');
 
@@ -322,7 +322,7 @@ class Table extends AbstractUIComponent
    * @param int $lineNum  Numéro de la ligne
    * @return string
    */
-  private function renderLine($line, $lineNum)
+  protected function renderLine($line, $lineNum)
   {
     // On génère le contenu du TR (avec le modificateur)
     $tr_content = $this->getElementTemplate('tr', $lineNum);
@@ -381,7 +381,7 @@ class Table extends AbstractUIComponent
    * @param  mixed  $modifier  Modificateur, à utiliser pour td (boolean) et tr (integer)
    * @return string
    */
-  private function getElementTemplate($element, $modifier = null)
+  protected function getElementTemplate($element, $modifier = null)
   {
     $element = strtolower($element);
     if (!array_key_exists($element, $this->elementTemplates)) {

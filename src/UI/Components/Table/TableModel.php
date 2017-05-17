@@ -16,7 +16,7 @@ class TableModel
   /**
    * @var array   Modèle
    */
-  private $model = array();
+  protected $model = array();
 
   /**
    * Définit un composant appliquable à une colonne donnée

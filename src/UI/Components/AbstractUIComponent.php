@@ -19,27 +19,27 @@ abstract class AbstractUIComponent implements AssetsInterface
   /**
    * @var string  Id du composant
    */
-  private $id = '';
+  protected $id = '';
 
   /**
    * @var string Personnalisation de la balise style
    */
-  private $style = '';
+  protected $style = '';
 
   /**
    * @var array Classes appliquées
    */
-  private $classes = array();
+  protected $classes = array();
 
   /**
    * @var array Attributs ajoutés
    */
-  private $attributes = array();
+  protected $attributes = array();
 
   /**
    * @var string|array  Valeur actuelle.
    */
-  private $value = null;
+  protected $value = null;
 
   /**
    * Constructeur

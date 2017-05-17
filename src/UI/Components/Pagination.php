@@ -18,52 +18,52 @@ class Pagination extends AbstractUIComponent
   /**
   * @var Jin2\UI\Table\Table  Composant UI Table sur lequel effectuer la pagination
   */
-  private $targetTableComponent;
+  protected $targetTableComponent;
 
   /**
   * @var int	Nombre maximum de résultats par page
   */
-  private $maxByPage = 20;
+  protected $maxByPage = 20;
 
   /**
   * @var boolean Préserve les autres paramètres GET
   */
-  private $preserveQueryString = true;
+  protected $preserveQueryString = true;
 
   /**
   * @var int	Page courante
   */
-  private $currentPage = 1;
+  protected $currentPage = 1;
 
   /**
   * @var string  Nom de l'argument transmis en GET pour modifier la pagination (Dans un fonctionnement classique)
   */
-  private $argumentName = 'p';
+  protected $argumentName = 'p';
 
   /**
   * @var int Nombre max de pages affichées (nombre impair)
   */
-  private $maxShowedPages = 3;
+  protected $maxShowedPages = 3;
 
   /**
   * @var boolean Définit que l'utilisateur a forcé l'affichage d'une page spécifique. (Sinon déterminé automatiquement)
   */
-  private $forcedPage = false;
+  protected $forcedPage = false;
 
   /**
   * @var int	Nombre de pages
   */
-  private $nbPages = 0;
+  protected $nbPages = 0;
 
   /**
   * @var int	Nombre total de résultats
   */
-  private $resultsCount;
+  protected $resultsCount;
 
   /**
   * @var array  Classes CSS pour les éléments du composant
   */
-  private $elementClasses = array(
+  protected $elementClasses = array(
     'first'        => array(),
     'last'         => array(),
     'page'         => array(),
@@ -75,7 +75,7 @@ class Pagination extends AbstractUIComponent
   /**
   * @var array  Templates pour les éléments du composant
   */
-  private $elementTemplates = array(
+  protected $elementTemplates = array(
     'first'        => null,
     'last'         => null,
     'page'         => null,
@@ -308,7 +308,7 @@ class Pagination extends AbstractUIComponent
   /**
    * Met à jour les données de la Table liée après une modification des paramètres
    */
-  private function updateTable()
+  protected function updateTable()
   {
     if ($this->targetTableComponent !== null) {
       if (!$this->resultsCount) {
@@ -332,7 +332,7 @@ class Pagination extends AbstractUIComponent
    *
    * @return string
    */
-  private function getQueryString()
+  protected function getQueryString()
   {
     $qs = '?';
     if ($this->preserveQueryString && isset($_GET) && count($_GET) > 0) {
@@ -350,7 +350,7 @@ class Pagination extends AbstractUIComponent
    *
    * @return string
    */
-  private function getElementTemplate($element)
+  protected function getElementTemplate($element)
   {
     $element = strtolower($element);
     if (!array_key_exists($element, $this->elementTemplates)) {
